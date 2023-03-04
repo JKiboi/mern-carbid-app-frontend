@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SuccessMessage, ErrorMessage } from "./SuccessMessage";
-
 import axios from "axios";
+import config from "../config/config";
 import styled from "styled-components";
 
 const PaymentPage = () => {
@@ -14,7 +14,7 @@ const PaymentPage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/payments/process-payment", {
+      const response = await axios.post(`${config.backendUrl}/api/payments/process-payment`, {
         name,
         phone,
         amount,
