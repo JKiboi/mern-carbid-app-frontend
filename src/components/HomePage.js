@@ -10,6 +10,8 @@ import car2 from "../assets/car2.jpg";
 import car3 from "../assets/car3.jpg";
 import loadingGif from "../assets/loading.gif";
 
+import config from '../config/config';
+
 const HomePage = () => {
   const [winner, setWinner] = useState(null);
   const [countdownFinished, setCountdownFinished] = useState(false);
@@ -17,7 +19,7 @@ const HomePage = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:5000");
+    const newSocket = io(config.backendUrl);
     setSocket(newSocket);
 
     return () => newSocket.close();
